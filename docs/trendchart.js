@@ -133,7 +133,7 @@ function plotMilestone(milestone) {
         let y = canvasYpos(new Date(milestone.d[i].p));
         points.push([x,y]);
     }
-    var polyline = draw.polyline(points).fill('none').stroke({ width: 2 });
+    var polyline = draw.polyline(points).fill('none').stroke({ width: 2, color: '#3b5895' });
 }
 
 // Overlay a triangle to hide the lines under the triangle
