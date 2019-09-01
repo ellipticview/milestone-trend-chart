@@ -71,7 +71,8 @@ const canvasWidth = leftMargin + chartSize + legendOverflowRight;
 const canvasHeight = topMargin + chartSize + legendOverflowBottom;
 minDate = axisDates[0];
 maxDate = axisDates[axisDates.length-1];
-const dateRange = maxDate - minDate; // In seconds
+const dateRange = maxDate - minDate; // In milliseconds
+const colorGrid = "#cccccc"
 
 function canvasXpos(date) {
     return leftMargin + chartSize * (date-minDate) / dateRange;
@@ -92,7 +93,7 @@ for (let i = 0; i < axisDates.length; i++) {
     var axisDate = axisDates[i];
     var lineLength = chartSize * (axisDate - minDate) / dateRange;
     var yPos = canvasYpos(axisDate);
-    draw.line(leftMargin, yPos, leftMargin + lineLength, yPos).stroke({ width: 1 });
+    draw.line(leftMargin, yPos, leftMargin + lineLength, yPos).stroke({ width: 1, color: colorGrid });
 
     var text = draw.plain(formatDate(axisDate))
     text.attr({ x: 0, y: (yPos+5) })
@@ -104,7 +105,7 @@ for (let i = 0; i < axisDates.length; i++) {
     var axisDate = axisDates[i];
     var lineLength = chartSize * (maxDate - axisDate) / dateRange;
     var xPos = canvasXpos(axisDate);
-    draw.line(xPos, topMargin, xPos, topMargin + lineLength).stroke({ width: 1 });
+    draw.line(xPos, topMargin, xPos, topMargin + lineLength).stroke({ width: 1, color: colorGrid});
 
     var text = draw.plain(formatDate(axisDate))
     var yPos = topMargin -5; // give a little space
@@ -112,9 +113,6 @@ for (let i = 0; i < axisDates.length; i++) {
     text.path(`M ${xPos} ${yPos} l 50 -50`)
     text.font({ family: 'Helvetica', size: 12 })
 }
-
-// Draw diagonal line
-draw.line(leftMargin, topMargin+chartSize, leftMargin+chartSize, topMargin).stroke({ width: 1 });
 
 // Plot milestones
 chartDef.milestones.forEach(plotMilestone);
@@ -141,6 +139,12 @@ var polygon = draw.polygon([ [leftMargin, (topMargin+chartSize)]
                            , [(leftMargin+chartSize), topMargin]
                            , [(leftMargin+chartSize), (topMargin+chartSize)]
                           ]).fill("#FFFFFF");
+
+// Display a triangle around the grid
+var polygon = draw.polygon([ [leftMargin, topMargin]
+, [(leftMargin+chartSize), topMargin]
+, [leftMargin, (topMargin+chartSize)]
+]).fill('none').stroke({width: 1});
 
 // Display the legend
 displayLegend(chartDef.milestones);

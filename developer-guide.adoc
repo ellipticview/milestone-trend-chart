@@ -1,0 +1,18 @@
+= Milestone Trend Chart - Developer Guide
+Author Name
+:doctype: article
+:encoding: utf-8
+:lang: en
+:toc: left
+:numbered:
+
+== Introduction
+This document describes the design of the chart generator and the development tooling.
+
+== Development Environment
+To serve the html page locally, start `run-server.bat`. It starts a simple npm server based on https://www.npmjs.com/package/node-static[node-static] which serves the contents of the docs folder.
+
+To test from the spreadsheet, replace the URL in the spreadsheet by http://127.0.0.1:8000/trendchart.html
+
+== Design
+
