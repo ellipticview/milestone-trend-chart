@@ -16,16 +16,15 @@ Download the spreadsheet [here](https://ellipticview.github.io/milestone-trend-c
 
 The data is in an Excel table. If you required more columns/rows, then expand the table. Do not add adjacent columns or rows.
 
-Fill out the milestones and press the button.
+Fill out the milestones and press the button. A URL is now stored in your clipboard.
+Go to your browser and paste the URL (Ctrl-V) in the URL bar. Press Enter and the browser displays the chart.
 
 If you want to share the diagram, you can share the URL. As the URL is quite long, you might want to create a shorter version using [TinyUrl](https://tinyurl.com/).
 
 How does it work?
 ============
-When you click the button in the spreadsheet, a spreadsheet macro assembles the milestone information and creates a URL which is sent to the clipboard.
-All you have to do, is paste this URL in your browser. 
-Your browser receives the web page and the milestone data. The browser then draws the chart using your milestone data. Your data is not used or stored on the server.
-
+When you click the button in the spreadsheet, a spreadsheet macro assembles the milestone information and creates a URL which contains all the data in the spreadsheet. This URL is sent to the clipboard.
+When you paste this URL in your browser, the browser receives the web page and the milestone data. The browser then draws the chart using your milestone data. Your data is not used or stored on the server.
 
 Frequently Asked Questions
 ==========================
